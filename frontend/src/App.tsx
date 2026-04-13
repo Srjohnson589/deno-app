@@ -1,5 +1,5 @@
 import { Button, Field, Label, Textarea } from "@headlessui/react";
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import { SubmitEvent, useCallback, useEffect, useState } from "react";
 import logo from "./assets/AirTera_Logo_Icon.png";
 
 export function App() {
@@ -39,7 +39,7 @@ export function App() {
     void loadStoredFile();
   }, [loadStoredFile]);
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitState("submitting");
     setSubmitMessage(null);
@@ -112,6 +112,7 @@ export function App() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               rows={8}
+              required
               className="w-full resize-y rounded-lg border border-white/15 bg-black/30 px-3 py-2 text-sm text-white outline-none ring-white/30 placeholder:text-white/35 focus:border-amber-400/50 focus:ring-2 data-focus:border-amber-400/50 data-hover:border-white/25"
               placeholder="Enter text to send to the server…"
             />
